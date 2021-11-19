@@ -1793,6 +1793,10 @@ Tap the + to start adding people.";
 
 "poll_edit_form_create_options" = "Create options";
 
-"poll_edit_form_option_number" = "Option %d";
+"poll_edit_form_option_number" = "Option %lu";
 
 "poll_edit_form_add_option" = "Add option";
+
+"poll_timeline_votes_count" = "%lu votes";
+
+"poll_timeline_total_votes_count" = "Based on %lu votes";

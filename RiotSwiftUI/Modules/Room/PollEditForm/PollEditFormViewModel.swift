@@ -28,8 +28,8 @@ class PollEditFormViewModel: PollEditFormViewModelType {
     
     private struct Constants {
         static let maxAnswerOptionsCount = 20
-        static let maxQuestionLength = 200
-        static let maxAnswerOptionLength = 200
+        static let maxQuestionLength = 340
+        static let maxAnswerOptionLength = 340
     }
 
     // MARK: - Properties

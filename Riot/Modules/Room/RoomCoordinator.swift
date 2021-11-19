@@ -77,6 +77,11 @@ final class RoomCoordinator: NSObject, RoomCoordinatorProtocol {
         self.roomViewController = RoomViewController.instantiate()
         self.activityIndicatorPresenter = ActivityIndicatorPresenter()
         
+        if #available(iOS 14, *) {
+            PollTimelineViewProvider.shared.session = parameters.session
+            PollTimelineViewProvider.shared.roomViewController = roomViewController
+        }
+        
         super.init()
     }
     
@@ -149,6 +154,10 @@ final class RoomCoordinator: NSObject, RoomCoordinatorProtocol {
             self.activityIndicatorPresenter.removeCurrentActivityIndicator(animated: true)
 
             if let roomDataSource = roomDataSource {
+                if #available(iOS 14, *) {
+                    PollTimelineViewProvider.shared.room = roomDataSource.room
+                }
+                
                 self.roomViewController.displayRoom(roomDataSource)
             }
             
@@ -174,6 +183,10 @@ final class RoomCoordinator: NSObject, RoomCoordinatorProtocol {
 
             guard let roomDataSource = dataSource as? RoomDataSource else {
                 return
+            }
+            
+            if #available(iOS 14, *) {
+                PollTimelineViewProvider.shared.room = roomDataSource.room
             }
 
             roomDataSource.markTimelineInitialEvent = true
@@ -249,7 +262,6 @@ extension RoomCoordinator: RoomViewControllerDelegate {
         }
         
         let parameters = PollEditFormCoordinatorParameters(navigationRouter: self.navigationRouter)
-        
         pollEditFormCoordinator = PollEditFormCoordinator(parameters: parameters)
         
         pollEditFormCoordinator?.start()

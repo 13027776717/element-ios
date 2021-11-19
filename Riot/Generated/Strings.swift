@@ -2379,7 +2379,7 @@ public class VectorL10n: NSObject {
   public static var pollEditFormInputPlaceholder: String { 
     return VectorL10n.tr("Vector", "poll_edit_form_input_placeholder") 
   }
-  /// Option %d
+  /// Option %lu
   public static func pollEditFormOptionNumber(_ p1: Int) -> String {
     return VectorL10n.tr("Vector", "poll_edit_form_option_number", p1)
   }
@@ -2390,6 +2390,14 @@ public class VectorL10n: NSObject {
   /// Question or topic
   public static var pollEditFormQuestionOrTopic: String { 
     return VectorL10n.tr("Vector", "poll_edit_form_question_or_topic") 
+  }
+  /// Based on %lu votes
+  public static func pollTimelineTotalVotesCount(_ p1: Int) -> String {
+    return VectorL10n.tr("Vector", "poll_timeline_total_votes_count", p1)
+  }
+  /// %lu votes
+  public static func pollTimelineVotesCount(_ p1: Int) -> String {
+    return VectorL10n.tr("Vector", "poll_timeline_votes_count", p1)
   }
   /// Preview
   public static var preview: String { 
